@@ -7,14 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { HarryPotterPageRoutingModule } from './harry-potter-routing.module';
 
 import { HarryPotterPage } from './harry-potter.page';
+import { HttpClientModule } from '@angular/common/http';
+import { HarryPotterService } from 'src/app/services/harry-potter.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    HttpClientModule,
     IonicModule,
     HarryPotterPageRoutingModule
   ],
-  declarations: [HarryPotterPage]
+  declarations: [HarryPotterPage],
+   providers: [HarryPotterService]
 })
 export class HarryPotterPageModule {}

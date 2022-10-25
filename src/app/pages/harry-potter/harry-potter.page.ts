@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AtoresModel } from 'src/app/services/harry-potter-model';
+import { HarryPotterService } from 'src/app/services/harry-potter.service';
 
 @Component({
   selector: 'app-harry-potter',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HarryPotterPage implements OnInit {
 
-  constructor() { }
+  atores: AtoresModel[] = [];
 
-  ngOnInit() {
+  constructor(private service: HarryPotterService) { }
+
+  ngOnInit(): void {
+    this.service.getAtores().
+      subscribe(lista => {
+        this.atores = lista;
+      });
   }
 
 }
